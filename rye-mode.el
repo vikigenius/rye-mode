@@ -36,16 +36,6 @@
   :prefix "rye-"
   :group 'tools)
 
-;;; TODO Handle if the version string does not match
-;;;###autoload
-(defun rye-get-python-version ()
-  "Get python version."
-  (when-let (root-path (projectile-locate-dominating-file default-directory ".python-version"))
-    (let* ((file-path (expand-file-name ".python-version" root-path))
-           (version
-            (with-temp-buffer
-              (insert-file-contents-literally file-path)
-              (string-trim (buffer-string)))))))
+(provide 'rye-mode)
 
-  (provide 'rye-mode)
 ;;; rye-mode.el ends here
